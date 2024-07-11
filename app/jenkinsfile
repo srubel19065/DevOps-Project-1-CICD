@@ -4,8 +4,8 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'project-1-sparta-app:latest'
         DOCKER_REGISTRY = 'r21bxl'
-        DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
-        GIT_CREDENTIALS = credentials('GIT_CREDENTIALS')
+        DOCKER_REGISTRY_CREDENTIALS = 'rubel-docker-registry'
+        GIT_CREDENTIALS = 'rubel-github'
         KUBERNETES_CREDENTIALS = 'kube-config'
         KUBERNETES_DEPLOYMENT_NAME = 'project-1-sparta-app-deployment'
         KUBERNETES_SERVICE_NAME = 'project-1-sparta-app-svc'
@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: "${env.DEV_BRANCH}", credentialsId: "${GIT_CREDENTIALS}", url: 'https://github.com/your-github-repo.git'
+                git branch: "${env.DEV_BRANCH}", credentialsId: "${GIT_CREDENTIALS}", url: 'https://github.com/srubel19065/DevOps-Project-1-CICD.git'
             }
         }
  
