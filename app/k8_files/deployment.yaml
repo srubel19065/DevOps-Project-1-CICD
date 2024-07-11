@@ -1,0 +1,23 @@
+# k8s/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-1-sparta-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: project-1-sparta-app
+  template:
+    metadata:
+      labels:
+        app: project-1-sparta-app
+    spec:
+      containers:
+      - name: project-1-sparta-app
+        image: r21bxl/project-1-sparta-app:latest
+        ports:
+        - containerPort: 80
+        env:
+         - name: NODE_ENV
+           value: "production"

@@ -1,0 +1,18 @@
+# service.yaml
+apiVersion: v1
+kind: Service 
+
+metadata:
+  name: project-1-sparta-app-svc
+  namespace: default
+
+spec:
+  ports: # ports that the service will look to run on
+  - nodePort: 30001 # random node port that the service will run on
+    port: 80
+    targetPort: 3000 
+
+  selector:
+    app: project-1-sparta-app 
+
+  type: NodePort
